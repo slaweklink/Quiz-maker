@@ -1,17 +1,19 @@
 # Quiz maker reads a set of questions from a file "questions.txt" and presents them in a window. It keeps
 # the score of the users in a different file called "highscores.txt"
 # 1.create the layout
-#
+#picture size 110x80
 #
 #
 from tkinter import *
 from tkinter import filedialog
+from PIL import ImageTk, Image #for importing images
 
 
 #creating the window and setting up its' components
 okno = Tk()
-okno.title("Quiz maker 0.1")
-okno.geometry("600x280")
+okno.title("Quiz maker 0.2")
+okno.geometry("550x280")
+okno.resizable(0,0) #user can't change the size of the window
 
 # creating quiz name label and form
 quiznamelabel = Label(okno, text="Quiz name", font=("Arial Black", 15))
@@ -63,6 +65,14 @@ checkbox4.grid(column=0,row=5,  pady=10)
 answer4entry = Entry(okno, width=40)
 answer4entry.grid(column=1,row=5, sticky=W)
 #############################################################################
+#adding image
+path="mozg.png"
+img = ImageTk.PhotoImage(Image.open(path))
+panel = Label(okno, image=img)
+panel.grid(column=2, row=2, rowspan=3, sticky=E, padx=10)
+
+change_image = Button(okno, text="Change image")
+change_image.grid(column=2,row=5)
 #creating the window
 
 
